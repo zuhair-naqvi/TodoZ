@@ -1,6 +1,6 @@
-Temp Staging - todoz.meteor.com
+Temp Staging - http://todoz.meteor.com
 
-*Todo*
+**Todo**
 
 1. Implement Landscape-Mode media-queries
 2. Implement Mongo interface with latency compensation
