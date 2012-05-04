@@ -101,6 +101,7 @@
 				this.element.data('date', formated);
 			} else {
 				this.element.prop('value', formated);
+				this.element.trigger('change');
 			}
 		},
 		
