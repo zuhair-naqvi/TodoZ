@@ -1,4 +1,4 @@
-TodoZ
+Todo
 =====
 
 1. Implement Landscape-Mode media-queries
