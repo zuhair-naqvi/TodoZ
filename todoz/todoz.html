@@ -14,30 +14,72 @@
       padding: 9px 0;
     }
 	#dp1{
-	  padding: 10px;
-	  font-size: 22px;
+	  background: transparent;
+	  font-weight: bold;
+	  border: 0px;
+	  border-radius: 0px;
+	  text-align:center;
+	  color: #fff;
+	  margin: 0px;
+	  margin-top: 2px;	
+	  font-size: 18px;
 	}
-	@media (max-width: 767px) {
-		#dp1{
-		  padding: 5px;
-		  font-size: 12px;
-		  font-weight: bold;
-		  float: none;
+	
+	@media (min-width: 768px) and (max-width: 979px) {
+		#dp1 {
+			width: 100px;
+		}		
+		
+		#search
+		{
+			float: none;
 		}
 		
-		#username h1{
-			font-size: 20px;
-			font-weight: bold;
-		}
+		.search-query
+		{
+			width: 95%;
+		}		
 		
-		#controls
+		#topmenu
 		{
 			text-align:center;
 		}
+		
+		#topmenu .nav
+		{
+			text-align:left;
+		}		
+	}
+	
+	@media (max-width: 767px) {
+		#dp1 {
+			width: 100px;
+		}		
+		
+		#search
+		{
+			float: none;
+		}
+		
+		.search-query
+		{
+			width: 95%;
+		}		
+		
+		#topmenu
+		{
+			text-align:center;
+		}
+		
+		#topmenu .nav
+		{
+			text-align:left;
+		}		
 	}
   </style>
   <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="bootstrap/css/datepicker.css" rel="stylesheet">
+  <script src="bootstrap/js/moment.js"></script>
   <script src="bootstrap/js/bootstrap-transition.js"></script>
   <script src="bootstrap/js/bootstrap-alert.js"></script>
   <script src="bootstrap/js/bootstrap-modal.js"></script>
@@ -67,25 +109,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Dashboard</a>
+          <input type="text" class="brand" value="{{today}}" id="dp1" readonly="true">
           <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> {{user}}
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Sign Out</a></li>
+              <li><a href="#">Liam</a></li>
+              <li><a href="#">Ben</a></li>
             </ul>
           </div>
-          <div class="nav-collapse">
+          <div id="topmenu" class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Me</a></li>
-              <li><a href="#about">Liam</a></li>
-              <li><a href="#contact">Ben</a></li>
+              <li class="active"><a href="#">List</a></li>
+              <li><a href="#about">Settings</a></li>
+              <li><a href="#contact">Sign out</a></li>
             </ul>
-			<form class="navbar-search pull-left">
+			<form id="search" class="navbar-search pull-left">
 			  <input type="text" class="search-query" placeholder="Search" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>	
 			</form>
           </div><!--/.nav-collapse -->
@@ -95,10 +136,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid" id="controls">
-		<div id="username" class="span6"><h1>Zuhair</h1></div>
-        <div class="span6">
-            <input type="text" class="pull-right" value="02-16-2012" id="dp1">
-        </div><!--/span-->
+
       </div><!--/row-->
 
       <hr>

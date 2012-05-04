@@ -2,7 +2,8 @@ if (Meteor.is_client) {
 	
   Meteor.startup(function () {
 		$('#dp1').datepicker({
-			format: 'mm-dd-yyyy'
+			format: 'dd-mm-yyyy',
+			autoclose: true
 		});
   });
 	
@@ -10,9 +11,14 @@ if (Meteor.is_client) {
     return "Zuhair";
   };
 
+  Template.main.today = function () {
+    return moment().format('DD-MM-YYYY');
+  };
+
   Template.main.events = {
     'change #dp1' : function (event) {
     	console.log("Something changed");
+		$('#dp1').datepicker('hide');
     }
   };
 
