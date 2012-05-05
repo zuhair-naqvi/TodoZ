@@ -1,0 +1,3 @@
+[submodule "todoz/public/bootstrap"]
+	path = todoz/public/bootstrap
+	url = git://github.com/twitter/bootstrap.git

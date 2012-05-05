@@ -1,1 +1,103 @@
 /* CSS declarations go here */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.sidebar-nav {
+  padding: 9px 0;
+}
+#dp1{
+  background: transparent;
+  font-weight: bold;
+  border: 0px;
+  border-radius: 0px;
+  text-align:center;
+  color: #fff;
+  margin: 0px;
+  margin-top: 2px;	
+  font-size: 18px;
+}
+
+.itemslist ul
+{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.itemslist ul li
+{
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.itemslist input
+{
+	margin-top:8px;
+	border-radius: 0px;
+	padding: 0px;
+	width: 92%;
+	box-shadow: none;
+	border: 0px;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	#dp1 {
+		width: 100px;
+	}		
+	
+	#search
+	{
+		float: none;
+	}
+	
+	.search-query
+	{
+		width: 95%;
+	}		
+	
+	#topmenu
+	{
+		text-align:center;
+	}
+	
+	#topmenu .nav
+	{
+		text-align:left;
+	}		
+	.itemslist input
+	{
+		width: 87%;
+	/*	border: 0px;*/
+	}
+}
+
+@media (max-width: 767px) {
+	#dp1 {
+		width: 100px;
+	}		
+	
+	#search
+	{
+		float: none;
+	}
+	
+	.search-query
+	{
+		width: 95%;
+	}		
+	
+	#topmenu
+	{
+		text-align:center;
+	}
+	
+	#topmenu .nav
+	{
+		text-align:left;
+	}
+	.itemslist input
+	{
+		width: 77%;
+	/*	border: 0px;*/
+	}		
+}

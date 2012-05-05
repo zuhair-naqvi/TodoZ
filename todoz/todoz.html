@@ -5,78 +5,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
   <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-  <style type="text/css">
-    body {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-    .sidebar-nav {
-      padding: 9px 0;
-    }
-	#dp1{
-	  background: transparent;
-	  font-weight: bold;
-	  border: 0px;
-	  border-radius: 0px;
-	  text-align:center;
-	  color: #fff;
-	  margin: 0px;
-	  margin-top: 2px;	
-	  font-size: 18px;
-	}
-	
-	@media (min-width: 768px) and (max-width: 979px) {
-		#dp1 {
-			width: 100px;
-		}		
-		
-		#search
-		{
-			float: none;
-		}
-		
-		.search-query
-		{
-			width: 95%;
-		}		
-		
-		#topmenu
-		{
-			text-align:center;
-		}
-		
-		#topmenu .nav
-		{
-			text-align:left;
-		}		
-	}
-	
-	@media (max-width: 767px) {
-		#dp1 {
-			width: 100px;
-		}		
-		
-		#search
-		{
-			float: none;
-		}
-		
-		.search-query
-		{
-			width: 95%;
-		}		
-		
-		#topmenu
-		{
-			text-align:center;
-		}
-		
-		#topmenu .nav
-		{
-			text-align:left;
-		}		
-	}
-  </style>
   <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="bootstrap/css/datepicker.css" rel="stylesheet">
   <script src="bootstrap/js/moment.js"></script>
@@ -136,7 +64,10 @@
 
     <div class="container-fluid">
       <div class="row-fluid" id="controls">
-
+		<input type="text" name="newtask" id="newtask" style="width:98%" placeholder="Add New Task" onblur="addTask(this)"/>
+		<form name="tasksform">
+		{{> taskslist}}
+		</form>
       </div><!--/row-->
 
       <hr>
@@ -146,4 +77,20 @@
       </footer>
 
     </div><!--/.fluid-container-->
+</template>
+
+<template name="taskslist">
+	<div class="itemslist">
+		<ul>
+			{{#each tasks}}
+			<li>
+				<input type="checkbox" name="done_{{_id}}" onclick="markDone(this.checked, '{{_id}}')" form="tasksform"/>
+				<input type="text" name="{{_id}}" id="{{_id}}" class="taskitem" value="{{name}}" onblur="markLabel(this)" form="tasksform"/>
+				<span id="label_{{_id}}"></span>
+			</li>
+			{{else}}
+			<li>No tasks found.</li>
+			{{/each}}
+		</ul>
+	</div>
 </template>
