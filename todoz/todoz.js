@@ -41,11 +41,13 @@ function markDone(isDone, id)
 	console.log('done '+id);
 	if(isDone)
 	{
-		$('input[name='+id+']').css('text-decoration','line-through');
+		$('input[name='+id+']').addClass('done');
+		Tasks.update(id, {$set:{name: $('input[name='+id+']').val(), done:"done"}});
 	}
 	else
 	{
-		$('input[name='+id+']').css('text-decoration','none');
+		$('input[name='+id+']').removeClass('done');
+		Tasks.update(id, {$set:{name: $('input[name='+id+']').val(), done:null}});
 	}
 }
 
@@ -53,7 +55,7 @@ function markLabel(input)
 {
 	if(input.value[input.value.length-1] == '!')
 	{
-		$('#label_'+input.id).addClass('label').addClass('label-important').text('high');
+		$('#label_'+input.id).addClass('label').addClass('label-warning').text('high');
 	}
 	else
 	{
@@ -68,4 +70,9 @@ function addTask(newtask)
 		Tasks.insert({name:newtask.value});
 		newtask.value = '';
 	}
+}
+
+function removeTask(taskId)
+{
+	Tasks.remove({_id:taskId});
 }

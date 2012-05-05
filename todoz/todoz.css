@@ -40,6 +40,11 @@ body {
 	border: 0px;
 }
 
+input.done
+{
+	text-decoration: line-through;
+}
+
 @media (min-width: 768px) and (max-width: 979px) {
 	#dp1 {
 		width: 100px;
@@ -66,7 +71,7 @@ body {
 	}		
 	.itemslist input
 	{
-		width: 87%;
+		width: 90%;
 	/*	border: 0px;*/
 	}
 }
@@ -97,7 +102,7 @@ body {
 	}
 	.itemslist input
 	{
-		width: 77%;
+		width: 70%;
 	/*	border: 0px;*/
 	}		
 }

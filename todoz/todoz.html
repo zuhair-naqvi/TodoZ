@@ -65,9 +65,7 @@
     <div class="container-fluid">
       <div class="row-fluid" id="controls">
 		<input type="text" name="newtask" id="newtask" style="width:98%" placeholder="Add New Task" onblur="addTask(this)"/>
-		<form name="tasksform">
 		{{> taskslist}}
-		</form>
       </div><!--/row-->
 
       <hr>
@@ -84,9 +82,16 @@
 		<ul>
 			{{#each tasks}}
 			<li>
-				<input type="checkbox" name="done_{{_id}}" onclick="markDone(this.checked, '{{_id}}')" form="tasksform"/>
-				<input type="text" name="{{_id}}" id="{{_id}}" class="taskitem" value="{{name}}" onblur="markLabel(this)" form="tasksform"/>
-				<span id="label_{{_id}}"></span>
+				{{#if done}}
+				<input type="checkbox" name="done_{{_id}}" onclick="markDone(this.checked, '{{_id}}')" checked="checked"/>
+				<span id="label_{{_id}}"></span>								
+				<input type="text" name="{{_id}}" id="{{_id}}" value="{{name}}" onblur="markLabel(this)" class="done"/>
+				{{else}}
+				<input type="checkbox" name="done_{{_id}}" onclick="markDone(this.checked, '{{_id}}')" />			
+				<span id="label_{{_id}}"></span>					
+				<input type="text" name="{{_id}}" id="{{_id}}" value="{{name}}" onblur="markLabel(this)" />				
+				{{/if}}
+				<button class="btn btn-mini btn-danger" onclick="removeTask('{{_id}}')">x</button>
 			</li>
 			{{else}}
 			<li>No tasks found.</li>
